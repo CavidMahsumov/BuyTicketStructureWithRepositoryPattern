@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BuyTicket"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="OldLace" >
+    <Grid Background="OldLace" Name="MainGrid" >
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -23,7 +23,7 @@
                     <TextBlock  Text="Cities" HorizontalAlignment="Center" FontSize="20">
 
                     </TextBlock>
-                    <ComboBox Name="CitiesCombobox" Width="250"  Height="50" SelectionChanged="ComboBox_SelectionChanged">
+                    <ComboBox  Name="CitiesCombobox" Width="250"  Height="50" SelectionChanged="ComboBox_SelectionChanged">
                     </ComboBox>
                 </StackPanel>
 
@@ -33,7 +33,7 @@
                     <TextBlock  Text="Schedules" HorizontalAlignment="Center" FontSize="20">
 
                     </TextBlock>
-                    <ComboBox Name="SchedulesComboBox" Width="250"  Height="50">
+                    <ComboBox Name="SchedulesComboBox" Width="250"  Height="50" SelectionChanged="SchedulesComboBox_SelectionChanged">
 
                     </ComboBox>
                 </StackPanel>
@@ -79,7 +79,7 @@
 
         <Grid Grid.Row="2">
             <WrapPanel>
-                <Button Background="Orange" Margin="30,20,0,0" Name="PurchaseButton" Width="200" Height="50" FontSize="30" FontWeight="SemiBold" FontFamily="COmic Sans MS" Content="Purchase" ></Button>
+                <Button Background="Orange" Margin="30,20,0,0" Name="PurchaseButton" Width="200" Height="50" FontSize="30" FontWeight="SemiBold" FontFamily="COmic Sans MS" Content="Purchase" Click="PurchaseButton_Click" ></Button>
                 <RadioButton Margin="210,30,0,0" Name="EcoRadioBtn" Content="Ecomomic" FontSize="20">
                     
                 </RadioButton>

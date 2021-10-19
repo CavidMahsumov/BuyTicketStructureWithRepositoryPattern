@@ -1,6 +1,7 @@
 ﻿using BuyTicket.DataAccess.SqlServer;
 using BuyTicket.Domain.Additional_Classes;
 using BuyTicket.Domain.Entites;
+using BuyTicket.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,8 @@ namespace BuyTicket
         BuyTicketDbEntities BuyTicketDbEntities = new BuyTicketDbEntities();
         public List<Pilot> pilots { get; set; }
         City City = new City();
+        Airplane Airplane = new Airplane();
+        Schedule Schedule = new Schedule();
 
         public MainWindow()
         {
@@ -57,6 +60,8 @@ namespace BuyTicket
                 var data2 = ObserverHelper.ToObservableCollection(currentsch);
 
                 SchedulesComboBox.ItemsSource = data2;
+                City = currentCities;
+                
             }
             catch (Exception ex)
             {
@@ -74,7 +79,7 @@ namespace BuyTicket
 
                 NameTxtBlock.Text = currentpilot.Name;
                 SurnameTxtBlock.Text = currentpilot.Surename;
-
+                Airplane = currentAirplane;
 
             }
             catch (Exception ex)
@@ -83,6 +88,31 @@ namespace BuyTicket
             }
          
 
+        }
+
+        private void PurchaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ticket Purchased");
+            ShowTicket showTicket = new ShowTicket();
+            showTicket.Listbox1.Items.Add(
+                new Ticket
+                {
+                    Airplane = Airplane,
+                    AirplaneId = Airplane.Id,
+                    Schedule = Schedule,
+                     ScheludeId=Schedule.Id,
+                      City=City,
+                       CityId=City.Id,
+                        
+                }
+                ) ;
+            MainGrid.Children.Add(showTicket);
+        }
+
+        private void SchedulesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var curretnsch = SchedulesComboBox.SelectedItem as Schedule;
+            Schedule = curretnsch;
         }
     }
 }

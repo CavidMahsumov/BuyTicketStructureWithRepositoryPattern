@@ -24,5 +24,9 @@ namespace BuyTicket.Domain.Entites
         public virtual City City { get; set; }
         public virtual FlyType FlyType { get; set; }
         public virtual Schedule Schedule { get; set; }
+        public override string ToString()
+        {
+            return $"{CityId}  -   {AirplaneId} -   {Airplane}   -    {City}    -    {ScheludeId}    -    {ScheludeId}";
+        }
     }
 }
