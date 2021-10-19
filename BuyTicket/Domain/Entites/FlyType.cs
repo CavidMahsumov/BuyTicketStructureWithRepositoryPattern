@@ -12,10 +12,10 @@ namespace BuyTicket.Domain.Entites
     using System;
     using System.Collections.Generic;
     
-    public partial class FlightType
+    public partial class FlyType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FlightType()
+        public FlyType()
         {
             this.Tickets = new HashSet<Ticket>();
         }

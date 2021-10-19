@@ -11,6 +11,7 @@ namespace BuyTicket.DataAccess.SqlServer
 {
     public class SchedulesRepository : ISchedulesRepository
     {
+        BuyTicketDbEntities context = new BuyTicketDbEntities();
         public void AddData(Schedule data)
         {
             throw new NotImplementedException();
@@ -23,12 +24,14 @@ namespace BuyTicket.DataAccess.SqlServer
 
         public ObservableCollection<Schedule> GetAllData()
         {
-            throw new NotImplementedException();
+            var scs = from a in context.Schedules select a;
+            return new ObservableCollection<Schedule>(scs);
         }
 
         public Schedule GetData(int id)
         {
-            throw new NotImplementedException();
+            var Sch = context.Schedules.FirstOrDefault(a => a.Id == id);
+            return Sch;
         }
 
         public void UpdateData(Schedule data)

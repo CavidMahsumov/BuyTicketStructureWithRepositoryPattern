@@ -11,6 +11,7 @@ namespace BuyTicket.DataAccess.SqlServer
 {
     public class PilotRepository : IPilotRepository
     {
+        BuyTicketDbEntities context = new BuyTicketDbEntities();
         public void AddData(Pilot data)
         {
             throw new NotImplementedException();
@@ -23,12 +24,14 @@ namespace BuyTicket.DataAccess.SqlServer
 
         public ObservableCollection<Pilot> GetAllData()
         {
-            throw new NotImplementedException();
+            var types = from a in context.Pilots select a;
+            return new ObservableCollection<Pilot>(types);
         }
 
         public Pilot GetData(int id)
         {
-            throw new NotImplementedException();
+            var Pilot = context.Pilots.FirstOrDefault(a => a.Id == id);
+            return Pilot;
         }
 
         public void UpdateData(Pilot data)

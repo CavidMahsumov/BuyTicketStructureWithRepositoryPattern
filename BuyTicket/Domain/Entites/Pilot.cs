@@ -17,14 +17,14 @@ namespace BuyTicket.Domain.Entites
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pilot()
         {
-            this.AirPlanes = new HashSet<AirPlane>();
+            this.Airplanes = new HashSet<Airplane>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Surename { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AirPlane> AirPlanes { get; set; }
+        public virtual ICollection<Airplane> Airplanes { get; set; }
     }
 }

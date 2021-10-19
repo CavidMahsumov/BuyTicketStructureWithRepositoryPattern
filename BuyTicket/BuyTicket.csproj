@@ -85,13 +85,13 @@
     <Compile Include="Domain\Abstraction\IRepository.cs" />
     <Compile Include="Domain\Abstraction\ISchedulesRepository.cs" />
     <Compile Include="Domain\Abstraction\ITicketRepository.cs" />
-    <Compile Include="Domain\Entites\AirPlane.cs">
+    <Compile Include="Domain\Entites\Airplane.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entites\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Entites\FlightType.cs">
+    <Compile Include="Domain\Entites\FlyType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entites\Model1.Context.cs">
@@ -163,19 +163,19 @@
     <Folder Include="Domain\View\" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Domain\Entites\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Domain\Entites\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

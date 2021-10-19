@@ -15,14 +15,14 @@ namespace BuyTicket.Domain.Entites
     public partial class Ticket
     {
         public int Id { get; set; }
-        public Nullable<int> City_Id { get; set; }
-        public Nullable<int> Airplane_Id { get; set; }
-        public Nullable<int> Schedules_Id { get; set; }
-        public Nullable<int> FlightTypes_Id { get; set; }
+        public Nullable<int> CityId { get; set; }
+        public Nullable<int> AirplaneId { get; set; }
+        public Nullable<int> ScheludeId { get; set; }
+        public Nullable<int> FlyTypeId { get; set; }
     
-        public virtual AirPlane AirPlane { get; set; }
+        public virtual Airplane Airplane { get; set; }
         public virtual City City { get; set; }
-        public virtual FlightType FlightType { get; set; }
+        public virtual FlyType FlyType { get; set; }
         public virtual Schedule Schedule { get; set; }
     }
 }

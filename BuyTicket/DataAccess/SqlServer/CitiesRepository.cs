@@ -11,6 +11,7 @@ namespace BuyTicket.DataAccess.SqlServer
 {
     class CitiesRepository : ICitiesRepository
     {
+        BuyTicketDbEntities context = new BuyTicketDbEntities();
         public void AddData(City data)
         {
             throw new NotImplementedException();
@@ -23,12 +24,14 @@ namespace BuyTicket.DataAccess.SqlServer
 
         public ObservableCollection<City> GetAllData()
         {
-            throw new NotImplementedException();
+            var cities = from a in context.Cities select a;
+            return new ObservableCollection<City>(cities);
         }
 
         public City GetData(int id)
         {
-            throw new NotImplementedException();
+            var city = context.Cities.FirstOrDefault(a => a.Id == id);
+            return city;
         }
 
         public void UpdateData(City data)

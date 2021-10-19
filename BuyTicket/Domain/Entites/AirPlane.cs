@@ -12,10 +12,10 @@ namespace BuyTicket.Domain.Entites
     using System;
     using System.Collections.Generic;
     
-    public partial class AirPlane
+    public partial class Airplane
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AirPlane()
+        public Airplane()
         {
             this.Cities = new HashSet<City>();
             this.Tickets = new HashSet<Ticket>();
@@ -23,13 +23,17 @@ namespace BuyTicket.Domain.Entites
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int PessengersCount { get; set; }
-        public Nullable<int> Pilot_Id { get; set; }
+        public int PassengerCount { get; set; }
+        public Nullable<int> PilotId { get; set; }
     
         public virtual Pilot Pilot { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<City> Cities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Tickets { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuyTicket.Domain.Abstraction
 {
-   public interface IFlightRepository:IRepository<FlightType>
+   public interface IFlightRepository:IRepository<FlyType>
     {
     }
 }

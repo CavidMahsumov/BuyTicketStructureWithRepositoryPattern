@@ -6,7 +6,91 @@
         xmlns:local="clr-namespace:BuyTicket"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="OldLace" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock  Text="Cities" HorizontalAlignment="Center" FontSize="20">
+
+                    </TextBlock>
+                    <ComboBox Name="CitiesCombobox" Width="250"  Height="50" SelectionChanged="ComboBox_SelectionChanged">
+                    </ComboBox>
+                </StackPanel>
+
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <TextBlock  Text="Schedules" HorizontalAlignment="Center" FontSize="20">
+
+                    </TextBlock>
+                    <ComboBox Name="SchedulesComboBox" Width="250"  Height="50">
+
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <TextBlock  Text="Airplanes" HorizontalAlignment="Center" FontSize="20">
+
+                    </TextBlock>
+                    <ComboBox  Name="AirplaneComboBox"  Width="250"  Height="50" SelectionChanged="AirplaneComboBox_SelectionChanged">
+
+                    </ComboBox>
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel >
+                <TextBlock HorizontalAlignment="Center" FontSize="30"> Pilot Info</TextBlock>
+                <WrapPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock Margin="10,20,0,0" FontSize="20" Text="Name : ">
+
+                        </TextBlock>
+                        <TextBlock Margin="10,20,0,0" FontSize="20" Text="SurName : ">
+
+                        </TextBlock>
+
+                    </StackPanel>
+                    <StackPanel Margin="40,0,0,0">
+                        <TextBlock Name="NameTxtBlock" Margin="10,20,0,0" FontSize="20" >
+
+                        </TextBlock>
+                        <TextBlock x:Name="SurnameTxtBlock" Margin="10,20,0,0" FontSize="20" >
+
+                        </TextBlock>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <WrapPanel>
+                <Button Background="Orange" Margin="30,20,0,0" Name="PurchaseButton" Width="200" Height="50" FontSize="30" FontWeight="SemiBold" FontFamily="COmic Sans MS" Content="Purchase" ></Button>
+                <RadioButton Margin="210,30,0,0" Name="EcoRadioBtn" Content="Ecomomic" FontSize="20">
+                    
+                </RadioButton>
+                <RadioButton Margin="10,30,0,0" Name="premiumRadioBtn" Content="Premium" FontSize="20">
+
+                </RadioButton>
+                <RadioButton Margin="10,30,0,0" Name="BusinessRadioBtn" Content="Businness" FontSize="20">
+
+                </RadioButton>
+
+            </WrapPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -11,27 +11,30 @@ namespace BuyTicket.DataAccess.SqlServer
 {
     public class AirplaneRepository : IAirplaneRepository
     {
-        public void AddData(AirPlane data)
+        BuyTicketDbEntities context = new BuyTicketDbEntities();
+        public void AddData(Airplane data)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteData(AirPlane data)
+        public void DeleteData(Airplane data)
         {
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<AirPlane> GetAllData()
+        public ObservableCollection<Airplane> GetAllData()
         {
-            throw new NotImplementedException();
+            var airplane = from a in context.Airplanes select a;
+            return new ObservableCollection<Airplane>(airplane);
         }
 
-        public AirPlane GetData(int id)
+        public Airplane GetData(int id)
         {
-            throw new NotImplementedException();
+            var airplane = context.Airplanes.FirstOrDefault(a => a.Id == id);
+            return airplane;
         }
 
-        public void UpdateData(AirPlane data)
+        public void UpdateData(Airplane data)
         {
             throw new NotImplementedException();
         }

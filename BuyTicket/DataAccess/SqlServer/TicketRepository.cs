@@ -11,6 +11,7 @@ namespace BuyTicket.DataAccess.SqlServer
 {
     public class TicketRepository : ITicketRepository
     {
+        BuyTicketDbEntities context = new BuyTicketDbEntities();
         public void AddData(Ticket data)
         {
             throw new NotImplementedException();
@@ -23,12 +24,14 @@ namespace BuyTicket.DataAccess.SqlServer
 
         public ObservableCollection<Ticket> GetAllData()
         {
-            throw new NotImplementedException();
+            var tickets = from a in context.Tickets select a;
+            return new ObservableCollection<Ticket>(tickets);
         }
 
         public Ticket GetData(int id)
         {
-            throw new NotImplementedException();
+            var ticket = context.Tickets.FirstOrDefault(a => a.Id == id);
+            return ticket;
         }
 
         public void UpdateData(Ticket data)

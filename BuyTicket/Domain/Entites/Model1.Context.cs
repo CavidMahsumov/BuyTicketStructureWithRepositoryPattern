@@ -13,10 +13,10 @@ namespace BuyTicket.Domain.Entites
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BuyTicketEntities : DbContext
+    public partial class BuyTicketDbEntities : DbContext
     {
-        public BuyTicketEntities()
-            : base("name=BuyTicketEntities")
+        public BuyTicketDbEntities()
+            : base("name=BuyTicketDbEntities")
         {
         }
     
@@ -25,9 +25,9 @@ namespace BuyTicket.Domain.Entites
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AirPlane> AirPlanes { get; set; }
+        public virtual DbSet<Airplane> Airplanes { get; set; }
         public virtual DbSet<City> Cities { get; set; }
-        public virtual DbSet<FlightType> FlightTypes { get; set; }
+        public virtual DbSet<FlyType> FlyTypes { get; set; }
         public virtual DbSet<Pilot> Pilots { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
