@@ -1,4 +1,5 @@
 ﻿using BuyTicket.DataAccess.SqlServer;
+using BuyTicket.Domain.Additional_Classes;
 using BuyTicket.Domain.Entites;
 using System;
 using System.Collections.Generic;
@@ -49,8 +50,13 @@ namespace BuyTicket
             {
                 
             var currentCities = CitiesCombobox.SelectedItem as City;
-            var currentairplanes = BuyTicketDbEntities.Airplanes.Select(a => a.Id == currentCities.AirplaneId);
-            AirplaneComboBox.ItemsSource = currentairplanes;
+                var currentairplanes = BuyTicketDbEntities.Airplanes.Where(a => a.Id == currentCities.AirplaneId);
+                var data =ObserverHelper.ToObservableCollection(currentairplanes);
+                AirplaneComboBox.ItemsSource = data;
+                var currentsch = BuyTicketDbEntities.Schedules.Where(s => s.Id == currentCities.ScheludeId);
+                var data2 = ObserverHelper.ToObservableCollection(currentsch);
+
+                SchedulesComboBox.ItemsSource = data2;
             }
             catch (Exception ex)
             {
@@ -68,6 +74,8 @@ namespace BuyTicket
 
                 NameTxtBlock.Text = currentpilot.Name;
                 SurnameTxtBlock.Text = currentpilot.Surename;
+
+
             }
             catch (Exception ex)
             {
